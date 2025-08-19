@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <nav>
-        <div className=''>
-          <ul className='list-none m-0 p-0 '>
+        <div className="bg-tea.l flex">
+          <ul className='m-0 p-5 font-sans font-medium flex'>
             <li><a href="#AlgoMeter">AlgoMeter</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Calculate">Calculate</a></li>
