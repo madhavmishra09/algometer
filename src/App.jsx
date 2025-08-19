@@ -10,7 +10,7 @@ function App() {
     <>
       <nav>
         <div>
-          <ul className='m-0 p-5 font-medium flex gap-2 justify-center items-center'>
+          <ul className='m-0 p-5 font-medium text-3xl flex gap-10 justify-center items-center bg-gray-200'>
             <li><a href="#AlgoMeter">AlgoMeter</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Calculate">Calculate</a></li>
