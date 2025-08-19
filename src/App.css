@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 body{
-  @apply bg-teal-400 font-(family-name:"Nata Sans");
+  @apply bg-teal-400;
 
 }
