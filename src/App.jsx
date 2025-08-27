@@ -17,6 +17,26 @@ function App() {
           </ul>
         </div>
       </nav>
+      <section id="how-it-works" className='py-16 bg-gray-50'>
+        <h2 className='text-3xl font-bold text-center mb-10 text-gray-800'>
+          How AlgoMeter Works
+        </h2>
+        {/*Step 1*/}
+        <div className='bg-white shoadow-md rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transform transition duration-300'>
+          <h3 className='text-xl font-semibold mb-2 text-blue-600'>Paste</h3>
+          <p className='text-gray-600'>Copy your algorithm/code and paste it into AlgoMeter.</p>
+        </div>
+        {/*Step 2*/}
+        <div className='bg-white shoadow-md rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transform transition duration-300'>
+          <h3 className='text-xl font-semibold mb-2 text-blue-600'>Analyze</h3>
+          <p className="text-gray-600">AlgoMeter inspects complexity, efficiency, and potential issues.</p>
+        </div>
+        {/* Step 3 */}
+    <div className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transform transition duration-300">
+      <h3 className="text-xl font-semibold mb-2 text-blue-600">Understand</h3>
+      <p className="text-gray-600">View insights with clear explanations and performance indicators.</p>
+    </div>
+      </section>
     </>
   )
 }
