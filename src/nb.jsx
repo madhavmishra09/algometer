@@ -7,9 +7,9 @@ export default function Navbar() {
                 <h1 className="text-white text-2xl font-bold">AlgoMeter</h1>
                 <button className="text-white text-2xl md:hidden" onClick={() => setIsOpen(!isOpen)}>☰</button>
                 <ul className="hidden md:flex space-x-6 text-white font-medium">
-                    <li><a href="#about" className="hover:text-gray-200">About</a></li>
-                    <li><a href="#calculate" className="hover:text-gray-200">Calculate</a></li>
-                    <li><a href="#contact" className="hover:text-gray-200">Contact</a></li>
+                    <li><a href="#About" className="hover:text-gray-200">About</a></li>
+                    <li><a href="#Calculate" className="hover:text-gray-200">Calculate</a></li>
+                    <li><a href="#Contact" className="hover:text-gray-200">Contact</a></li>
                 </ul>
             </div>
             <div
@@ -17,9 +17,9 @@ export default function Navbar() {
                     }`}
             >
                 <ul className="flex flex-col space-y-3 md:hidden text-white font-medium">
-                    <li><a href="#about" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">About</a></li>
-                    <li><a href="#calculate" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">Calculate</a></li>
-                    <li><a href="#contact" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">Contact</a></li>
+                    <li><a href="#About" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">About</a></li>
+                    <li><a href="#Calculate" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">Calculate</a></li>
+                    <li><a href="#Contact" className="hover:text-gray-200 transition-all duration-300 transform hover:scale-110">Contact</a></li>
                 </ul>
             </div>
         </nav>
