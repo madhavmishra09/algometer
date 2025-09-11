@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from "./nb";
-import { useNavigate } from 'react-router'; 
-import codingVID from '/coding vid.mp4'
+import { useNavigate } from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
+import Result from './res.jsx';
+import { analyzeCode } from './calc.js'; 
 
 function App() {
   const [count, setCount] = useState(0)
+  const [inputCode,setInputCode]=useState('');
   const navigate = useNavigate();
   const handleAnalyze=()=>{
   const result=analyzeCode(inputCode);
@@ -13,7 +16,10 @@ function App() {
   }
   return (
     <>
-      <div>
+    <Routes>
+      <Route path="/" element={
+        <>
+        <div>
         <Navbar/>
       </div>
       <section id="About" className='py-16 bg-gradient-to-r from-blue-50 to-indigo-100'>
@@ -54,6 +60,9 @@ function App() {
           <button className=' px-4 sm:px-6 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:scale-105 transform transition duration-300' onClick={handleAnalyze}>Analyze</button>
         </div>
       </section >
+        </>
+      }/>
+      <Route path="/result" element={<Result/>}/></Routes>
     </>
   )
 }
