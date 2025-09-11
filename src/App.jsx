@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from "./nb";
+import { useNavigate } from 'react-router'; 
 import codingVID from '/coding vid.mp4'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const navigate = useNavigate();
+  const handleAnalyze=()=>{
+  const result=analyzeCode(inputCode);
+  navigate('/result',{state:{result}});
+  }
   return (
     <>
       <div>
@@ -42,11 +47,11 @@ function App() {
         </p>
         <div className='max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-6'>
           {/*Code Input Box*/}
-          <textarea className='w-full h-48 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none font-mono text-sm' placeholder='// Paste your algorithm here...' />
+          <textarea className='w-full h-48 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none font-mono text-sm' placeholder='// Paste your algorithm here...' value={inputCode} onChange={e=>setInputCode(e.target.value)}/>
         </div>
         {/*Calculate Button*/}
         <div className='flex justify-center mt-6'>
-          <button className=' px-4 sm:px-6 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:scale-105 transform transition duration-300'>Analyze</button>
+          <button className=' px-4 sm:px-6 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:scale-105 transform transition duration-300' onClick={handleAnalyze}>Analyze</button>
         </div>
       </section >
     </>
