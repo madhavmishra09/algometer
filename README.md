@@ -1,4 +1,4 @@
-# Know Your Complexity
+# AlgoMeter
 
 A web app that analyzes pasted code and estimates its time and space complexity. Built with React and Vite.
 
