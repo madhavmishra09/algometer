@@ -10,10 +10,19 @@ function App() {
   const [count, setCount] = useState(0)
   const [inputCode,setInputCode]=useState('');
   const navigate = useNavigate();
-  const handleAnalyze=()=>{
-  const result=analyzeCode(inputCode);
-  navigate('/result',{state:{result}});
+  const handleAnalyze = async () => {
+  try {
+    const response = await fetch('https://codalyze-api.selcukusta.com/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: inputCode })
+    });
+    const result = await response.json();
+    navigate('/result', { state: { result } });
+  } catch (error) {
+    alert('Error analyzing code');
   }
+};
   return (
     <>
     <Routes>
