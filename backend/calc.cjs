@@ -1,5 +1,5 @@
 const { env } = process;
-
+const fetch = (...args)=>import("node-fetch").then(({default:fetch})=>fetch(...args));
 /* ------------------------- GEMINI ONLY ------------------------ */
 async function callGemini(code) {
   const url = env.GEMINI_API_URL;
