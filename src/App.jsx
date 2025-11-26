@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import Navbar from "./nb.jsx";
 import { useNavigate, Routes, Route } from 'react-router-dom';
-import Result from './calculation/res.jsx';
+import Result from './res.jsx';
 
 function App() {
 	const [inputCode, setInputCode] = useState('');
