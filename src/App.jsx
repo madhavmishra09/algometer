@@ -14,7 +14,7 @@ function App() {
 		setLoading(true);
 		try {
 			// use same-origin path so Vite dev server can proxy to backend (avoids CORS)
-			let res = await fetch('https://algometer-backend.onrender.com', {
+			let res = await fetch('https://algometer-backend.onrender.com/api/analyze', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ code: inputCode })
@@ -23,7 +23,7 @@ function App() {
 			if (!res.ok) {
 				// try alternate proxied endpoint if server exposes it
 				try {
-					res = await fetch('https://algometer-backend.onrender.com', {
+					res = await fetch('https://algometer-backend.onrender.com/api/calculate', {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ code: inputCode })
