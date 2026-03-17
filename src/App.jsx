@@ -10,59 +10,49 @@ function App() {
 	const navigate = useNavigate();
 
 	const handleAnalyze = async () => {
-		if (!inputCode.trim()) return;
-		setLoading(true);
-		try {
-			// use same-origin path so Vite dev server can proxy to backend (avoids CORS)
-			let res = await fetch('https://algometer-backend.onrender.com/api/analyze', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ code: inputCode })
-			});
+	if (!inputCode.trim()) return;
 
-			if (!res.ok) {
-				// try alternate proxied endpoint if server exposes it
-				try {
-					res = await fetch('https://algometer-backend.onrender.com/api/calculate', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ code: inputCode })
-					});
-				} catch (e) {
-					// ignore and fallback below
+	setLoading(true);
+
+	try {
+		const res = await fetch(
+			"https://algometer-backend.onrender.com/analyze",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					code: inputCode
+				})
+			}
+		);
+
+		const data = await res.json();
+
+		console.log("Backend response:", data);
+
+		navigate("/result", {
+			state: { result: data }
+		});
+
+	} catch (err) {
+
+		console.error("Fetch error:", err);
+
+		navigate("/result", {
+			state: {
+				result: {
+					error: true,
+					summary: "Failed to connect to backend"
 				}
 			}
+		});
 
-			let result;
-			if (res && res.ok) {
-				// log status and body for debugging
-				console.log('backend response status:', res.status);
-				result = await res.json();
-			} else {
-				// Minimal fallback when backend is unavailable
-				result = {
-					error: true,
-					summary: 'Backend unavailable. Please start your calc.cjs server on localhost:8080.',
-					codeSnippet: inputCode ? inputCode.slice(0, 2000) : ''
-				};
-			}
-
-			// Log the raw result for debugging (check browser console)
-			console.log('analysis result:', result);
-
-			navigate('/result', { state: { result } });
-		} catch (err) {
-			console.error('analyze error:', err);
-			const result = {
-				error: true,
-				summary: 'Network error while contacting analysis backend.',
-				codeSnippet: inputCode ? inputCode.slice(0, 2000) : ''
-			};
-			navigate('/result', { state: { result } });
-		} finally {
-			setLoading(false);
-		}
-	};
+	} finally {
+		setLoading(false);
+	}
+};
 
 	return (
 		<>
